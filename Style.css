@@ -1,0 +1,684 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #eaeaea;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    position: fixed; /* VIGTIG */
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+
+.logo {
+    font-size: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 0 10px rgba(126,249,255,0.5);
+    animation: flicker 7s infinite;
+    display: inline-block;
+}
+
+.logo:hover{
+    color: #7ef9ff;
+    text-shadow: 
+        0 0 5px #7ef9ff,
+        0 0 10px #7ef9ff,
+        0 0 20px #7ef9ff;
+}
+
+nav a{
+    position: relative;
+    margin-left: 30px;
+    text-decoration: none;
+    color: #eaeaea;
+    font-weight: bold;
+    transition: 0.3s;
+    animation: flicker 11s infinite;
+}
+nav a:hover{
+    color: var(--ghost);
+    text-shadow: 
+        0 0 5px #7ef9ff,
+        0 0 10px #7ef9ff,
+        0 0 20px #7ef9ff;
+}
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: -5px;
+    background: #7ef9ff;
+    transition: 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.frontpagebody .hero{
+    height: 100vh;
+    background: url("img/Phasmo.png") no-repeat center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.Ghosts .hero {
+    height: 100vh;
+    background: url("img/ghostprof.png") no-repeat center/cover;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.Maps .hero {
+    background-position: center top;
+    height: 100vh;
+    background: url("img/maps.png") no-repeat top/cover;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.Ghosts {
+    min-height: 100vh;
+    background: url("img/ghostprof.png") no-repeat center/cover;
+}
+
+.frontpagebody .hero-text h1 {
+    font-size: 60px;
+    text-shadow: 0 0 10px rgba(255,255,255,0.6);
+}
+.frontpagebody .hero-content {
+    display: flex;
+    flex-direction: column; /* 👈 DET HER ER NØGLEN */
+    align-items: center;
+    gap: 50px;
+}
+.frontpagebody .hero-text p{
+    font-size: 20px;
+    margin-top: 20px;
+    text-shadow: 0 0 10px rgba(255,255,255,0.6);
+    margin-bottom: 30px;
+}
+
+@keyframes flicker {
+    0%   { opacity: 1; }
+    5%   { opacity: 0.4; }
+    10%  { opacity: 1; }
+    15%  { opacity: 0.3; }
+    20%  { opacity: 1; }
+    55%  { opacity: 0.9; }
+    60%  { opacity: 0.2; }
+    65%  { opacity: 1; }
+    100% { opacity: 1; }
+}
+
+.frontpagebody .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 70%);
+    pointer-events: none;
+}
+
+:root {
+    --ghost: #7ef9ff;
+}
+
+.frontpagebody .cards {
+    display: flex;
+    gap: 60px;
+}
+
+.frontpagebody .card {
+    width: 300px;
+    text-align: center;
+    padding: 30px;
+
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(20%);
+
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.frontpagebody .card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 0 20px rgba(126,249,255,0.3);
+}
+
+.frontpagebody .card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.frontpagebody .card p {
+    margin-top: 10px;
+    font-size: 24px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.frontpagebody .card a{
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav {
+        display: none; /* kan senere laves burger menu */
+    }
+}
+
+.ghost-page {
+    padding: 98px 20px 25px;
+    margin: 0 auto; /* 👈 centrer hele container */
+}
+.title {
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 40px;
+    color: white;
+    text-shadow: 0 0 10px rgba(126,249,255,0.5);
+}
+.ghost-page p {
+    text-align: center;
+    font-size: 20px;
+    margin-top: -40px;
+    margin-bottom: 20px;
+    color: white;
+    text-shadow: 0 0 10px rgba(126,249,255,0.5);
+}
+.card{
+    text-align: center;
+    transition: 0.3s;
+    border-radius: 35px;
+    transition: 0.3s;
+}
+
+.card h2 {
+    margin-top: 10px;
+    text-align: center;
+}
+.cards {
+    display: grid;
+    /* 👇 4 kort pr række */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 220px));
+    gap: 30px;
+    justify-content: center;
+}
+.card a {
+    text-decoration: none;
+    color: white;
+}
+.card img {
+    width: 80%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 36px;
+    object-fit: cover
+}
+@media (max-width: 900px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 0 20px rgba(126,249,255,0.3);
+}
+
+##Spirit
+body.Spirit {
+    min-height: 100vh;
+    background:red;
+}
+body.Spirit {
+    min-height: 100vh;
+    background: url("img/Backgroundghost.png") no-repeat center/cover;
+    position: relative;
+}
+
+body.Spirit::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background: radial-gradient(
+        circle at center,
+        rgba(255,255,255,0.08),
+        rgba(0,0,0,0.6)
+    );
+
+    pointer-events: none;
+    z-index: 1;
+}
+.Spirit-detail {
+    padding: 120px 40px 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* TOP (billede + tekst) */
+.Spirit-header {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.Spirit-header img {
+    width: 250px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(126,249,255,0.3);
+}
+
+.Spirit-info h1 {
+    font-size: 50px;
+    text-shadow: 0 0 15px rgba(126,249,255,0.6);
+}
+
+.Spirit-info p {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* GRID */
+.Spirit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+/* BOXES */
+.Spirit-box {
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.Spirit-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(126,249,255,0.3);
+}
+
+.Spirit-box h2 {
+    margin-bottom: 10px;
+    color: #7ef9ff;
+}
+
+.Spirit-box ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.Spirit-box li {
+    margin-bottom: 5px;
+}
+
+#banshee
+body.Banshee {
+    min-height: 100vh;
+    background: url("img/Backgroundghost.png") no-repeat center/cover;
+    position: relative;
+}
+body.Banshee {
+    min-height: 100vh;
+    background: url("img/Backgroundghost.png") no-repeat center/cover;
+    position: relative;
+}
+
+/* 👻 Fog */
+body.Banshee::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background: radial-gradient(
+        circle at center,
+        rgba(126,249,255,0.08),
+        rgba(0,0,0,0.7)
+    );
+
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* content over fog */
+header,
+.Spirit-detail {
+    position: relative;
+    z-index: 2;
+}
+
+body.Demon {
+    min-height: 100vh;
+    background: url("img/Backgroundghost.png") no-repeat center/cover;
+    position: relative;
+}
+
+/* mørkere og mere aggressiv fog */
+body.Demon::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background: radial-gradient(
+        circle at center,
+        rgba(255,0,0,0.08),
+        rgba(0,0,0,0.8)
+    );
+
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* content over */
+header,
+.Spirit-detail {
+    position: relative;
+    z-index: 2;
+}
+
+body.Deogen {
+    min-height: 100vh;
+    background: url("img/Backgroundghost.png") no-repeat center/cover;
+    position: relative;
+}
+
+/* creepy fog */
+body.Deogen::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background: radial-gradient(
+        circle at center,
+        rgba(126,249,255,0.06),
+        rgba(0,0,0,0.85)
+    );
+
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* content over */
+header,
+.Spirit-detail {
+    position: relative;
+    z-index: 2;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .ghost-header {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+body.Goryo {
+    min-height: 100vh;
+    background: url("../img/goryo-bg.png") no-repeat center/cover;
+    position: relative;
+}
+
+/* lidt kold og “kamera” vibe */
+body.Goryo::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background: radial-gradient(
+        circle at center,
+        rgba(0,255,200,0.05),
+        rgba(0,0,0,0.85)
+    );
+
+    pointer-events: none;
+    z-index: 1;
+}
+
+body.Hantu {
+    min-height: 100vh;
+    background: url("../img/hantu-bg.png") no-repeat center/cover;
+    position: relative;
+}
+
+/* cold fog */
+body.Hantu::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background: radial-gradient(
+        circle at center,
+        rgba(150,220,255,0.08),
+        rgba(0,0,0,0.85)
+    );
+
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* content over fog */
+header,
+.Spirit-detail {
+    position: relative;
+    z-index: 2;
+}
+body.Jinn {
+    min-height: 100vh;
+    background: url("../img/jinn-bg.png") no-repeat center/cover;
+    position: relative;
+}
+
+/* electric vibe */
+body.Jinn::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background: radial-gradient(
+        circle at center,
+        rgba(255,255,100,0.08),
+        rgba(0,0,0,0.85)
+    );
+
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* content over fog */
+header,
+.Spirit-detail {
+    position: relative;
+    z-index: 2;
+}
+
+body.Mare {
+    min-height: 100vh;
+    background: url("../img/mare-bg.png") no-repeat center/cover;
+    position: relative;
+}
+
+/* mørk / shadow vibe */
+body.Mare::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background: radial-gradient(
+        circle at center,
+        rgba(0,0,0,0.3),
+        rgba(0,0,0,0.9)
+    );
+
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* content over fog */
+header,
+.Spirit-detail {
+    position: relative;
+    z-index: 2;
+}
+
+body.Moroi {
+    min-height: 100vh;
+    background: url("../img/moroi-bg.png") no-repeat center/cover;
+    position: relative;
+}
+
+/* cursed / blood vibe */
+body.Moroi::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background: radial-gradient(
+        circle at center,
+        rgba(150,0,0,0.1),
+        rgba(0,0,0,0.85)
+    );
+
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* content over fog */
+header,
+.Spirit-detail {
+    position: relative;
+    z-index: 2;
+}
+
+body.Myling {
+    min-height: 100vh;
+    background: url("../img/myling-bg.png") no-repeat center/cover;
+    position: relative;
+}
+
+/* lyd / whisper vibe */
+body.Myling::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background: radial-gradient(
+        circle at center,
+        rgba(200,200,255,0.05),
+        rgba(0,0,0,0.9)
+    );
+
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* content over */
+header,
+.Spirit-detail {
+    position: relative;
+    z-index: 2;
+}
+
+body.Obake {
+    min-height: 100vh;
+    background: url("../img/obake-bg.png") no-repeat center/cover;
+    position: relative;
+}
+
+/* shapeshifter vibe */
+body.Obake::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background: radial-gradient(
+        circle at center,
+        rgba(150,255,200,0.06),
+        rgba(0,0,0,0.9)
+    );
+
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* content over */
+header,
+.Spirit-detail {
+    position: relative;
+    z-index: 2;
+}
+
+body.Oni {
+    min-height: 100vh;
+    background: url("../img/oni-bg.png") no-repeat center/cover;
+    position: relative;
+}
+
+/* aggressiv / varm vibe */
+body.Oni::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background: radial-gradient(
+        circle at center,
+        rgba(255,80,80,0.1),
+        rgba(0,0,0,0.85)
+    );
+
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* content over */
+header,
+.Spirit-detail {
+    position: relative;
+    z-index: 2;
+}
